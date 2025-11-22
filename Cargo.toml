@@ -5,6 +5,7 @@ edition = "2024"
 
 [dependencies]
 regex = "1.12.2"
+comrak = "0.48.0"
 
 [profile.release]
 lto = true
