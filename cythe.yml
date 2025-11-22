@@ -3,4 +3,4 @@ steps:
   - name: Checkout repo
     use: cythe-checkout
   - name: Run tests
-    use: cargo test -q
+    run: cargo test -q
