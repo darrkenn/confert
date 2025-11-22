@@ -1,0 +1,6 @@
+image: darrkenn/cythe-rust:latest
+steps:
+  - name: Checkout repo
+    use: cythe-checkout
+  - name: Run tests
+    use: cargo test -q

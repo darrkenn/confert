@@ -100,3 +100,35 @@ fn wrap_in_span(data: String) -> String {
     });
     wrapped.to_string()
 }
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn convert_spaces_successful() {
+        let text = "    ensure_installed = {},\n    elixirls = false,";
+        let output_space_size_two = convert_spaces(text.to_string(), 2);
+        let output_space_size_four = convert_spaces(text.to_string(), 4);
+
+        assert_eq!(
+            output_space_size_two,
+            "&nbsp;&nbsp;ensure_installed = {},\n&nbsp;&nbsp;elixirls = false,"
+        );
+        assert_eq!(
+            output_space_size_four,
+            "&nbsp;ensure_installed = {},\n&nbsp;elixirls = false,"
+        )
+    }
+
+    #[test]
+    fn wrap_in_span_successful() {
+        let text = "mason-org/mason-lspconfig.nvim\nneovim/nvim-lspconfig";
+        let output = wrap_in_span(text.to_string());
+
+        assert_eq!(
+            output,
+            "<span>mason-org/mason-lspconfig.nvim</span>\n<span>neovim/nvim-lspconfig</span>"
+        );
+    }
+}
