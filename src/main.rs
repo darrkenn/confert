@@ -69,7 +69,7 @@ fn convert_code(args: Vec<String>) {
                     process::exit(1);
                 }
             }
-            _ => {}
+            _ => i += 1,
         }
     }
     let data = read_file(file_location);
